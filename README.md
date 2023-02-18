@@ -1,7 +1,5 @@
-#  DRAG AND DROP REFRENCE
- ${1:Project Name}
-
-TODO: Write a project description
+#  DRAG AND drop
+making a puzzle game  and  fixing some bugs in that  . so basically when we drop a pzzle piece it overlaps and when we change it to 2nd puzzle game ,puzzle pieces drop from first game remain  there  this was the  bugs which is fixed 
 
 ## Installation
 
@@ -19,7 +17,7 @@ TODO: Describe the installation process
 
 ## Credits
 
-TODO: Write credits
+Bhuvnish arora
 
 ## License
 MIT
