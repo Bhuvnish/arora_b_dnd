@@ -28,6 +28,15 @@ function changeBGImage() {
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 }
 
+
+
+
+
+
+
+
+
+
 function handleStartDrag() { 
 	console.log('started dragging this piece:', this);
 
