@@ -11,6 +11,7 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzleBoard = document.querySelector(".puzzle-board"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
+	mainBoard = document.querySelector('.puzzle-pieces'),
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
 	draggedPiece;
@@ -25,6 +26,16 @@ function changeBGImage() {
 	// and updating the background-image style of the puzzle board element.
 
 	// bug fix #2 should go here. it's at most 3 lines of JS code.
+	dropZones.forEach(zone => {
+        while (zone.firstChild) {
+            zone.removeChild(zone.firstChild);
+        }
+    });
+
+    puzzlePieces.forEach(piece => {
+        piece.classList.remove("dropped");
+        mainBoard.appendChild(piece);
+    });
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 }
 
@@ -56,10 +67,32 @@ function handleDrop(e) {
 	console.log('dropped something on me');
 	// bug fix #1 should go here, and it's at most 3 lines of JS code
 
+    const dropZone = this;
+
+    // check if the drop zone has a piece already
+    const existingPiece = dropZone.querySelector('img');
+    if (existingPiece) {
+        puzzleBoard.insertBefore(draggedPiece, existingPiece);
+        dropZone.removeChild(existingPiece);
+        mainBoard.appendChild(existingPiece);
+    }
+
+    // add the dropped piece to the drop zone
+    dropZone.appendChild(draggedPiece);
+
+    // mark the piece as dropped
+    draggedPiece.classList.add("dropped");
+
+    // clear the draggedPiece reference
+    draggedPiece = null;
+}
+
+
+
+
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
-	this.appendChild(draggedPiece);
-}
+
 // step 2
 // event handling always goes at the bottom => 
 // how do we want users to interact with our app
