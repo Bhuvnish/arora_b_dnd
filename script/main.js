@@ -25,7 +25,25 @@ function changeBGImage() {
 	// and updating the background-image style of the puzzle board element.
 
 	// bug fix #2 should go here. it's at most 3 lines of JS code.
+	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+}
 
+
+
+
+
+
+
+
+
+
+function handleStartDrag() { 
+	console.log('started dragging this piece:', this);
+
+	// store a reference to the puzzle piece image that we're dragging
+	// so we can use it later and move it to a drop zone
+	draggedPiece = this;
+}
 
 function handleDragOver(e) { 
 	e.preventDefault(); // e is shorthand for event
