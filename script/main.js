@@ -67,25 +67,13 @@ function handleDrop(e) {
 	console.log('dropped something on me');
 	// bug fix #1 should go here, and it's at most 3 lines of JS code
 
-    const dropZone = this;
-
-    // check if the drop zone has a piece already
-    const existingPiece = dropZone.querySelector('img');
-    if (existingPiece) {
-        puzzleBoard.insertBefore(draggedPiece, existingPiece);
-        dropZone.removeChild(existingPiece);
-        mainBoard.appendChild(existingPiece);
-    }
-
-    // add the dropped piece to the drop zone
-    dropZone.appendChild(draggedPiece);
-
-    // mark the piece as dropped
-    draggedPiece.classList.add("dropped");
-
-    // clear the draggedPiece reference
-    draggedPiece = null;
+console.log(('this.quieryselectorALL(img))'))
+if((this.querySelectorAll('img').length)){
+	alert ('denied to overlap')
 }
+else{ this.appendChild(draggedPiece);}
+}
+
 
 
 
